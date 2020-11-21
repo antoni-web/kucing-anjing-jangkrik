@@ -8,25 +8,21 @@ import java.util.List;
 import simple.example.hewanpedia.model.Anjing;
 import simple.example.hewanpedia.model.Hewan;
 import simple.example.hewanpedia.model.Kucing;
+import simple.example.hewanpedia.model.Jangkrik;
 
 public class DataProvider {
     private static List<Hewan> hewans = new ArrayList<>();
 
-    private static List<Kucing> initDataKucing(Context ctx) {
-        List<Kucing> kucings = new ArrayList<>();
-        kucings.add(new Kucing("Angora", "Turki",
-                "Aslinya berasal dari Ankara, Turki dengan ciri khas berbulu panjang dan lembut", R.drawable.cat_angora));
-        kucings.add(new Kucing("Bengal", "Inggris",
-                "Merupakan hasil persilangan antara Kucing Leopard Asia dengan kucing domestik Inggris", R.drawable.cat_bengal));
-        kucings.add(new Kucing("Birmani", "Birma/Myanmar",
-                "Konon awalnya merupakan ras kucing yand biasa menemani para biksu yang menetap pada kuil di Birma", R.drawable.cat_birman));
-        kucings.add(new Kucing("Persia", "Iran",
-                "Kucing berbulu panjang dengan wajah bundar dan hidung pesek. Awalnya berasal dari Iran kemudian diimpor ke Italia", R.drawable.cat_persia));
-        kucings.add(new Kucing("Siam", "Thailand",
-                "Kucing hasil turunan dari Wichian Maat (Kucing Thailand) dengan ciri khas berbadan panjang dan langsing, wajah lonjong, telinga lebar, dan mata kebiruan", R.drawable.cat_siam));
-        kucings.add(new Kucing("Siberia", "Rusia",
-                "Kucing domestik Rusia dengan bulu lebat dan badan besar tapi sangat lincah dan terkenal dengan kemampuan melompatnya ", R.drawable.cat_siberian));
-        return kucings;
+    private static List<Jangkrik> intdatajangkrik(Context ctx) {
+        List<Jangkrik> jangkriks = new  ArrayList<>();
+        jangkriks.add(new Jangkrik("jangkrik_alam", "Sulawesi",
+                "Jenis jangkrik pertama adalah jangkrik alam/madu. Sesuai namanya jangkrik ini banyak dijumpai di alam atau lebih tepatnya di tanah luas yang agak lembab seperti ladang, sawah, samping rawa dan lain sebagainya",
+                R.drawable.jangkrik_alam));
+        jangkriks.add(new Jangkrik("jangkrik_kalung","australia",
+                "Jangkrik kalung juga termasuk yang banyak diternak dan diperjualbelikan, jenis ini memiliki nama latin Gryllus Bimaculatus, ia memiliki ciri ciri paling menonjol di antara jenis jangkrik lainnya",
+                R.drawable.jangkrik_kalung));
+
+        return jangkriks;
     }
 
     private static List<Anjing> initDataAnjing(Context ctx) {
@@ -46,9 +42,27 @@ public class DataProvider {
         return anjings;
     }
 
+    private static List<Kucing> initDataKucing(Context ctx) {
+        List<Kucing> kucings = new ArrayList<>();
+        kucings.add(new Kucing("Angora", "Turki",
+                "Aslinya berasal dari Ankara, Turki dengan ciri khas berbulu panjang dan lembut", R.drawable.cat_angora));
+        kucings.add(new Kucing("Bengal", "Inggris",
+                "Merupakan hasil persilangan antara Kucing Leopard Asia dengan kucing domestik Inggris", R.drawable.cat_bengal));
+        kucings.add(new Kucing("Birmani", "Birma/Myanmar",
+                "Konon awalnya merupakan ras kucing yand biasa menemani para biksu yang menetap pada kuil di Birma", R.drawable.cat_birman));
+        kucings.add(new Kucing("Persia", "Iran",
+                "Kucing berbulu panjang dengan wajah bundar dan hidung pesek. Awalnya berasal dari Iran kemudian diimpor ke Italia", R.drawable.cat_persia));
+        kucings.add(new Kucing("Siam", "Thailand",
+                "Kucing hasil turunan dari Wichian Maat (Kucing Thailand) dengan ciri khas berbadan panjang dan langsing, wajah lonjong, telinga lebar, dan mata kebiruan", R.drawable.cat_siam));
+        kucings.add(new Kucing("Siberia", "Rusia",
+                "Kucing domestik Rusia dengan bulu lebat dan badan besar tapi sangat lincah dan terkenal dengan kemampuan melompatnya ", R.drawable.cat_siberian));
+        return kucings;
+    }
+
     private static void initAllHewans(Context ctx) {
         hewans.addAll(initDataKucing(ctx));
         hewans.addAll(initDataAnjing(ctx));
+        hewans.addAll(intdatajangkrik(ctx));
     }
 
     public static List<Hewan> getAllHewan(Context ctx) {
